@@ -1,0 +1,11 @@
+
+tasks:
+# spot, action, y for arm (optional) or wait time
+- slot1, pick, 200
+- slot2, put
+- slot3, pick
+- slot4, put
+- slot2, pick
+- slot3, put
+- home, none
+- home, wait, 3000

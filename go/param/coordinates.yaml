@@ -1,0 +1,14 @@
+# x , y, yaw
+# units; x/y => meters  |  yeaw => degrees
+# tuse teleop to move magni, then use the following commande to see current pose
+# rosrun tf tf_echo map base_link
+
+goals:
+ - 1.163, 0.451, 23.525
+ - 2.296, 0.570, -38.058
+ - 2.457, -0.384, -131.676
+ - 1.224, -0.611, -173.067
+ - 0.153, 0.158, 143.175
+ - -1.035, 0.215, 179.176
+ - -1.053, -1.386, -67.361
+ - 0.0, 0.0, 0.0
