@@ -102,9 +102,17 @@ To start navigating:
     
     rosrun fastpick drive.py
     
+-------------End of the Instruction----------------------
+
+About this fork:
+====================
+- This fork modified map_saver.cpp to get better saved map for Google Cartographer
+
+Original README from fork:
+====================
 
 ROS Navigation Stack
-====================
+---
 
 A 2D navigation stack that takes in information from odometry, sensor
 streams, and a goal pose and outputs safe velocity commands that are sent
