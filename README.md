@@ -66,9 +66,9 @@ To verify the map saved before closing/ending the mapping program:
 ### End of mapping
 Now you can end all the programs.
 
-Localization & Navigation
+Localization & Setting Waypoints & Navigation
 ---
-### localization:
+### Localization:
 #### TX2:
 To rotate the lidar and start localize, type the following command in a TX2 terminal:
 
@@ -92,7 +92,37 @@ To make the robot localized itself precisely before navigating, type the followi
 
 You can run this command as many times as you want to localize it manually.
 
-### navigation:
+### Setting Waypoints (manually) (ignore this step if waypoints can be automatically generated):
+#### TX2:
+To start setting waypoint service:
+    
+    rosrun go generate.py
+
+#### Laptop:
+Use joystick or keyboard to move the robot to a desired location.
+And set waypoints.
+
+To delete/clean the original waypoints:
+
+    rosservice call /new
+
+To set a waypoint with name:
+
+    rosservice call /setpoint name
+    
+Note that the "name" can be change to anything like "slot1", "location1", etc..
+
+To set the waypoints:
+
+    rosservice call /save
+    
+#### TX2:
+After saving the waypoints.
+You can make your own routine by editing the sort.yaml file:
+
+    nano ~/navigation/src/go/param/sort.yaml
+
+### Navigation (Girts):
 #### raspberry pi (base):
 To set up (calibrate) the arm, run the following commands in a Base terminal:
     ~/home-x.py
