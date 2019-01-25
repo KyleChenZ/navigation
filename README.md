@@ -1,5 +1,9 @@
 SAKE Robot Mapping & Navigation Instruction
 ====================
+Download this repository to your laptop ros workspace in src (e.g., catkinws/src/):
+---
+- git clone -b kinetic-devel https://github.com/KyleChenZ/navigation.git
+
 Hareware setup
 ---
 - Make sure RPLidar's power cable and data cable are connected.
