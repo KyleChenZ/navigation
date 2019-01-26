@@ -125,8 +125,10 @@ You can make your own routine by editing the sort.yaml file:
 ### Navigation (Girts):
 #### raspberry pi (base):
 To set up (calibrate) the arm, run the following commands in a Base terminal:
+
     ~/home-x.py
-    ~/calibrate_gripper.py
+    ~/home-y.py
+    ~/calibrate-gripper.py
 
 To enable arm picking service, type the following command in a Base terminal:
 
@@ -135,6 +137,7 @@ To enable arm picking service, type the following command in a Base terminal:
 To start navigating:
     
     rosrun fastpick drive.py
+    
     
 -------------End of the Instruction----------------------
 
