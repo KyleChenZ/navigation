@@ -19,6 +19,18 @@ Software setup
     
     ssh ubuntu@192.168.7.210
 
+### TX2
+- Lidar should be rotating after boot. If not, make sure power cable is connected and powered. 
+- Then, check if Lidar is connect to USB0 by typing the following command in a TX2 terminal:
+    
+    ls /dev/ttyUSB*
+    
+If result is /dev/ttyUSB0, then type the following command in a TX2 terminal to start Lidar motor:
+    
+    systemctl restart rplidar.service
+
+Else if result if /dev/ttyUSB1, unplug Lidar data cable and plug again. Now it should be /dev/ttyUSB0. Then run above the  command.
+
 #### Note
 - Press shift+ctrl+t in a terminal to open a new tab. which is more organized and cleaner compared to openning a new window.
 
