@@ -20,18 +20,18 @@ To access to robot base (raspberry pi), type the following command in a new lapt
     
     ssh ubuntu@192.168.7.210
 
-### TX2 (Lidar Debug)
-Lidar should be rotating after boot. If not, make sure power cable is connected and powered. 
+### TX2 (RPLidar Debug)
+The RPLidar should be rotating on startup. If not, make sure the power cable is connected and powered. 
 
-Then, check if Lidar is connect to USB0 by typing the following command in a TX2 terminal:
+Then, check if the RPLidar is connect to ttyUSB0 of TX2 by typing the following command in a TX2 terminal:
     
     ls /dev/ttyUSB*
 
-If result is /dev/ttyUSB0, then type the following command in a TX2 terminal to start Lidar motor:
+If the result is /dev/ttyUSB0, then type the following command in a TX2 terminal to start the RPLidar motor:
     
     systemctl restart rplidar.service
 
-Else if result if /dev/ttyUSB1, unplug Lidar data cable and plug again. Now it should be /dev/ttyUSB0. Then run above the  command.
+Else if the result is /dev/ttyUSB1, unplug the RPLidar data cable and plug again. Now it should be /dev/ttyUSB0. Then run above the command. 
 
 #### Note
 - Press shift+ctrl+t in a terminal to open a new tab. which is more organized and cleaner compared to openning a new window.
@@ -39,7 +39,7 @@ Else if result if /dev/ttyUSB1, unplug Lidar data cable and plug again. Now it s
 Mapping
 ---
 ### TX2
-To make lidar rotating and start making map using Google Cartographer SLAM, type the following command in a TX2 terminal:
+To start making map using Google Cartographer SLAM, type the following command in a TX2 terminal:
 
     roslaunch go mapping.launch
 ### Laptop
@@ -85,7 +85,7 @@ Localization & Setting Waypoints & Navigation
 ---
 ### Localization:
 #### TX2:
-To rotate the lidar and start localize, type the following command in a TX2 terminal:
+To start localize, type the following command in a TX2 terminal:
 
     roslaunch go navigation.launch
 
