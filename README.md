@@ -11,20 +11,22 @@ Hareware setup
 Software setup
 ---
 ### Laptop
-- Connect to Sake Robot's Wifi
-- To access to TX2, type the following command in a laptop terminal:
+Connect to Sake Robot's Wifi
+
+To access to TX2, type the following command in a laptop terminal:
     
     ssh nvidia@192.168.7.221
-- To access to robot base (raspberry pi), type the following command in a new laptop terminal :
+To access to robot base (raspberry pi), type the following command in a new laptop terminal :
     
     ssh ubuntu@192.168.7.210
 
 ### TX2
-- Lidar should be rotating after boot. If not, make sure power cable is connected and powered. 
-- Then, check if Lidar is connect to USB0 by typing the following command in a TX2 terminal:
+Lidar should be rotating after boot. If not, make sure power cable is connected and powered. 
+
+Then, check if Lidar is connect to USB0 by typing the following command in a TX2 terminal:
     
     ls /dev/ttyUSB*
-    
+
 If result is /dev/ttyUSB0, then type the following command in a TX2 terminal to start Lidar motor:
     
     systemctl restart rplidar.service
