@@ -73,7 +73,8 @@ To verify the map saved before closing/ending the mapping program:
 4. a new window may pop up and ask for passphrase and password:
 - passphrase can be empty
 - password use TX2‘s password
-5. Once you can access to TX2's folder, open the map.pgm file to see if all necessary walls (cardboards in the arena) are appeared.
+
+5. Once you can access to TX2's folder, open the map.pgm file to see if all necessary walls (cardboards in the arena) are appeared. If not, keep the robot moving and building map. Then repeat 1-5 steps.
 
 ### End of mapping
 Now you can end all the programs.
@@ -97,12 +98,15 @@ After pressing the 2D Pose Estimate button, move your cursor to the robot locati
 
 Now laser scan (red particle) should match the wall/obstables. If not, then do 2D Pose Estimate more times to get better initial pose. 
 
-##### optional:
+##### note::
 To make the robot localized itself precisely before navigating, type the following command in a laptop terminal.
 
     rosservice call /request_nomotion_update
 
 You can run this command as many times as you want to localize it manually.
+
+### Setting Waypoints (automatically generated) (Girts)
+To be written...
 
 ### Setting Waypoints (manually) (ignore this step if waypoints can be automatically generated):
 #### TX2:
