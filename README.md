@@ -20,7 +20,7 @@ To access to robot base (raspberry pi), type the following command in a new lapt
     
     ssh ubuntu@192.168.7.210
 
-### TX2
+### TX2 (Lidar Debug)
 Lidar should be rotating after boot. If not, make sure power cable is connected and powered. 
 
 Then, check if Lidar is connect to USB0 by typing the following command in a TX2 terminal:
