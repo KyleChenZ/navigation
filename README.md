@@ -98,7 +98,7 @@ After pressing the 2D Pose Estimate button, move your cursor to the robot locati
 
 Now laser scan (red particle) should match the wall/obstables. If not, then do 2D Pose Estimate more times to get better initial pose. 
 
-##### note::
+##### Note:
 To make the robot localized itself precisely before navigating, type the following command in a laptop terminal.
 
     rosservice call /request_nomotion_update
