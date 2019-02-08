@@ -19,18 +19,21 @@ Files will be download to ~/Download by default
 
 ##### laser_cut.cpp
 To replace laser_cut.cpp in fastpick/src in TX2, type the following commands in a laptop terminal:
+    
     cd ~/Download
     sftp nvidia@192.168.7.221
     cd ~/navigation/src/fastpick/src
     put laser_cut.cpp
 
 After putting laser_cut.cpp, press ctrl+z to terminate sftp, then
+    
     ssh nvidia@192.168.7.221
     cd navigation
     catkin_make
     
 ##### gen.py
 To replace gen.cpp in fastpick/nodes in base raspberry pi, type the following commands in a laptop terminal:
+    
     cd ~/Download
     sftp ubuntu@192.168.7.210
     cd ~/catkin_ws/src/fastpick/nodes
@@ -139,6 +142,7 @@ You can run this command as many times as you want to localize it manually.
 -------Updated (Feb 7, 2019)------
 #### raspberry pi (base)：
 run gen.py：
+    
     rosrun fastpick gen.py
 
 delete records
@@ -148,6 +152,7 @@ then set four waypoint in counterclockwise and set dump position
 save file
 
 Now waypoints are set and the gen.py terminal should show something like:
+    
     scan area corners:
     <rosparam param="scan_area">[ [3.123,-2.557], [-0.294,-2.704], [-0.537,2.648], [2.867,2.762] ]</rosparam>
 
@@ -155,6 +160,7 @@ Now copy that <rosparam ... /rosparam> line and it will be used to configure a f
 
 #### TX2:
 Use your preferred text editor to insert a line in ~/navigation/src/fastpick/launch/depth-cam.launch file
+    
     roscd fastpick/launch
     vim depth-cam.launch
 
@@ -166,6 +172,7 @@ Now waypoints and scan area are set up.
 ### Navigation (Girts):
 #### TX2:
 To start camera node and laser cut for localization and navigation:
+    
     roslaunch go navigation_with_laser_cut.launch
 
 #### laptop:
