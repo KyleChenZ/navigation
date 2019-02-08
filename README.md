@@ -11,6 +11,34 @@ Hareware setup
 Software setup
 ---
 ### Laptop
+-------Updated (Feb 7, 2019)------
+#### Must do: File modification (must do)(do this only once)
+Download laser_cut.cpp and gen.py files from Girts email
+
+Files will be download to ~/Download by default
+
+##### laser_cut.cpp
+To replace laser_cut.cpp in fastpick/src in TX2, type the following commands in a laptop terminal:
+    cd ~/Download
+    sftp nvidia@192.168.7.221
+    cd ~/navigation/src/fastpick/src
+    put laser_cut.cpp
+
+After putting laser_cut.cpp, press ctrl+z to terminate sftp, then
+    ssh nvidia@192.168.7.221
+    cd navigation
+    catkin_make
+    
+##### gen.py
+To replace gen.cpp in fastpick/nodes in base raspberry pi, type the following commands in a laptop terminal:
+    cd ~/Download
+    sftp ubuntu@192.168.7.210
+    cd ~/catkin_ws/src/fastpick/nodes
+    put gen.py
+    
+------End of Update (Feb 7, 2019)-------
+
+#### Note
 Connect to Sake Robot's Wifi
 
 To access to TX2, type the following command in a laptop terminal:
@@ -20,7 +48,7 @@ To access to robot base (raspberry pi), type the following command in a new lapt
     
     ssh ubuntu@192.168.7.210
 
-### TX2 (RPLidar Debug)
+#### RPLidar Debug
 The RPLidar should be rotating on startup. If not, make sure the power cable is connected and powered. 
 
 Then, check if the RPLidar is connect to ttyUSB0 of TX2 by typing the following command in a TX2 terminal:
@@ -108,39 +136,43 @@ To make the robot localized itself precisely before navigating, type the followi
 You can run this command as many times as you want to localize it manually.
 
 ### Setting Waypoints (automatically generated) (Girts)
-To be written...
+-------Updated (Feb 7, 2019)------
+#### raspberry pi (base)：
+run gen.py：
+    rosrun fastpick gen.py
 
-### Setting Waypoints (manually) (ignore this step if waypoints can be automatically generated):
+delete records
+
+then set four waypoint in counterclockwise and set dump position
+
+save file
+
+Now waypoints are set and the gen.py terminal should show something like:
+    scan area corners:
+    <rosparam param="scan_area">[ [3.123,-2.557], [-0.294,-2.704], [-0.537,2.648], [2.867,2.762] ]</rosparam>
+
+Now copy that <rosparam ... /rosparam> line and it will be used to configure a file on TX2 for scan_area
+
 #### TX2:
-To start setting waypoint service:
+Use your preferred text editor to insert a line in ~/navigation/src/fastpick/launch/depth-cam.launch file
+    roscd fastpick/launch
+    vim depth-cam.launch
+
+Go to the line before <node name="laser_cut" pkg="fastpick" type="laser_cut"/> and add the line that you copied from gen.py of raspberry pi (base)
+
+Now waypoints and scan area are set up. 
     
-    rosrun go generate.py
-
-#### Laptop:
-Use joystick or keyboard to move the robot to a desired location.
-And set waypoints.
-
-To delete/clean the original waypoints:
-
-    rosservice call /new
-
-To set a waypoint with name:
-
-    rosservice call /setpoint name
-    
-Note that the "name" can be change to anything like "slot1", "location1", etc..
-
-To set the waypoints:
-
-    rosservice call /save
-    
-#### TX2:
-After saving the waypoints.
-You can make your own routine by editing the sort.yaml file:
-
-    nano ~/navigation/src/go/param/sort.yaml
 
 ### Navigation (Girts):
+#### TX2:
+To start camera node and laser cut for localization and navigation:
+    roslaunch go navigation_with_laser_cut.launch
+
+#### laptop:
+Open rviz and make sure robot is localized
+
+------End of Update (Feb 7, 2019)-------
+
 #### raspberry pi (base):
 To set up (calibrate) the arm, run the following commands in a Base terminal:
 
